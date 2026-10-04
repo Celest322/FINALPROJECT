@@ -2,7 +2,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
+
 
 public class Main {
 
@@ -84,7 +84,7 @@ public class Main {
         }//ELSE IF
 
         else if (menuChoice.equals("3")) {
-        System.out.println("Bye!");
+        System.out.println("THANKYOU FOR USING QuitiQUIZ");
         break;
 }   
         else {
@@ -102,7 +102,7 @@ public class Main {
     private static void addNewQuestion(QuizFileHandler fileHandler, Scanner scanner) {
         System.out.println("\n--- Add a New Question ---");
 
-        String questionText = readNonEmptyLine(scanner, "Enter the question text: ");
+        String questionText = readNonEmptyLine(scanner, "Enter a new question: ");
         String optionA = readNonEmptyLine(scanner, "Enter option A: ");
         String optionB = readNonEmptyLine(scanner, "Enter option B: ");
         String optionC = readNonEmptyLine(scanner, "Enter option C: ");
@@ -110,7 +110,7 @@ public class Main {
 
         char correctAnswer;
         while (true) {
-            System.out.print("Which option is correct? (A/B/C/D): ");
+            System.out.print("What is the correct answer? (A/B/C/D): ");
             String input = scanner.nextLine().trim();
 
             try {
