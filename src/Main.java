@@ -56,6 +56,7 @@ public class Main {
                     System.out.println();
                     System.out.print("                                                            Enter your name: ");
                     String playerName = scanner.nextLine().trim();
+                    
 
                     ArrayList<Question> questions;
 
@@ -82,9 +83,9 @@ public class Main {
                     QuizEngine engine = new QuizEngine(questions, scanner);
                     int finalScore = engine.run();
 
-                    System.out.println("\n                                                            =========================================");
-                    System.out.println(playerName + "                                                            , you scored " + finalScore + " out of " + questions.size() + "!");
-                    System.out.println("                                                            =========================================");
+                    System.out.println("\n=========================================");
+                    System.out.println(playerName + ", you scored " + finalScore + " out of " + questions.size() + "!");
+                    System.out.println("=========================================");
 
                     // --- File handling + exception handling for saving results ---
                     try {
@@ -97,7 +98,7 @@ public class Main {
                 }
 
                 case "3":
-                    System.out.println("                                                            THANKYOU FOR USING QuitiQUIZ");
+                    System.out.println("THANKYOU FOR USING QuitiQUIZ");
                     running = false;
                     break;
 
@@ -113,7 +114,7 @@ public class Main {
         
     else if(Enter.equals("QUIT")){
         while(Enter.equals("QUIT")){
-            System.out.println("                                                           Thank you for using the QuitiQUIZ Program");
+            System.out.println("Thank you for using the QuitiQUIZ Program");
             return;
         }//while
     }//elseIF
@@ -121,22 +122,22 @@ public class Main {
 
 
     private static void addNewQuestion(QuizFileHandler fileHandler, Scanner scanner) {
-        System.out.println("\n                                                            --- Add a New Question ---");
+        System.out.println("\n--- Add a New Question ---");
 
-        String questionText = readNonEmptyLine(scanner, "                                                            Enter a new question: ");
-        String optionA = readNonEmptyLine(scanner, "                                                            Enter option A: ");
-        String optionB = readNonEmptyLine(scanner, "                                                            Enter option B: ");
-        String optionC = readNonEmptyLine(scanner, "                                                            Enter option C: ");
-        String optionD = readNonEmptyLine(scanner, "                                                            Enter option D: ");
+        String questionText = readNonEmptyLine(scanner, "Enter a new question: ");
+        String optionA = readNonEmptyLine(scanner, "Enter option A: ");
+        String optionB = readNonEmptyLine(scanner, "Enter option B: ");
+        String optionC = readNonEmptyLine(scanner, "Enter option C: ");
+        String optionD = readNonEmptyLine(scanner, "Enter option D: ");
 
         char correctAnswer;
         while (true) {
-            System.out.print("                                                            What is the correct answer? (A/B/C/D): ");
+            System.out.print("What is the correct answer? (A/B/C/D): ");
             String input = scanner.nextLine().trim();
 
             try {
                 if (input.isEmpty()) {
-                    throw new InvalidAnswerException("                                                            You didn't enter anything.");
+                    throw new InvalidAnswerException("You didn't enter anything.");
                 }
 
                 char choice = Character.toUpperCase(input.charAt(0));
@@ -149,7 +150,7 @@ public class Main {
                 break;
 
             } catch (InvalidAnswerException e) {
-                System.out.println("Invalid answer: " + e.getMessage() + "                                                             Please enter A, B, C, or D.");
+                System.out.println("Invalid answer: " + e.getMessage() + " Please enter A, B, C, or D.");
             }
         }
 
@@ -158,7 +159,7 @@ public class Main {
 
         try {
             fileHandler.addQuestion(newQuestion);
-            System.out.println("                                                            Your question was added successfully!");
+            System.out.println("Your question was added successfully!");
         } catch (IOException e) {
             System.out.println("Error: Could not save your question. Details: " + e.getMessage());
         }
